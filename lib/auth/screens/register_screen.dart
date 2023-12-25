@@ -36,46 +36,14 @@ class _SingUpScreenState extends State<SingUpScreen> {
               ),
             ),
             Positioned(
-              left: 22,
-              top: 125,
-              child: Image.asset(
-                'assets/pngs/intro.png',
-                width: 300,
+              left: 20,
+              top: 140,
+              child: Text(
+                'welcome to neighbors kitchen where \nboth home cooks who want so show \ntheir delicious cooking and customer \nwho want to experience food like \nthe ones at their home',
+                style: TextStyle(
+                    fontSize: 20, color: AppColors.primaryHighContrast),
               ),
             ),
-            // Positioned(
-            //   right: (MediaQuery.sizeOf(context).width / 2) - 150,
-            //   top: 60,
-            //   child: Transform.rotate(
-            //     angle: -pi * 0,
-            //     child: SvgPicture.asset(
-            //       'assets/svgs/medition_with_box.svg',
-            //       width: 300,
-            //     ),
-            //   ),
-            // ),
-            // // Positioned(
-            // //   right: 10,
-            // //   top: 300,
-            // //   child: Transform.rotate(
-            // //     angle: -pi * 0.1,
-            // //     child: Image.asset(
-            // //       'assets/pngs/drugs.png',
-            // //       width: 80,
-            // //     ),
-            // //   ),
-            // // ),
-            // Positioned(
-            //   right: 100,
-            //   bottom: 30,
-            //   child: Transform.rotate(
-            //     angle: -pi * 0.04,
-            //     child: Image.asset(
-            //       'assets/pngs/cardiogram.png',
-            //       width: 200,
-            //     ),
-            //   ),
-            // ),
             Positioned(
               left: 30,
               right: 30,

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:glass_login/utils/custom_bg.dart';
-
-//import '../../utils/app_colors.dart';
 import 'login_screen.dart';
 import 'register_screen.dart';
 import 'verify_screen.dart';

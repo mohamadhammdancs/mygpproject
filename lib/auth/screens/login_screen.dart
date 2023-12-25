@@ -1,9 +1,5 @@
-//import 'dart:math';
-
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:string_validator/string_validator.dart';
-
 import '../../utils/app_colors.dart';
 import '../../utils/styles/text_field_style.dart';
 import '../../utils/utils.dart';
@@ -28,39 +24,6 @@ class _LoginScreenState extends State<LoginScreen> {
         size: MediaQuery.sizeOf(context),
         child: Stack(
           children: [
-            // Positioned(
-            //   right: 40,
-            //   top: 140,
-            //   child: Transform.rotate(
-            //     angle: pi * .1,
-            //     child: Image.asset(
-            //       'assets/pngs/medical.png',
-            //       width: 60,
-            //     ),
-            //   ),
-            // ),
-            // Positioned(
-            //   left: 80,
-            //   top: 300,
-            //   child: Transform.rotate(
-            //     angle: -pi * 0.05,
-            //     child: Image.asset(
-            //       'assets/pngs/health-care.png',
-            //       width: 50,
-            //     ),
-            //   ),
-            // ),
-            // // Positioned(
-            // //   right: 10,
-            // //   bottom: 20,
-            // //   child: Transform.rotate(
-            // //     angle: -pi * 0.14,
-            // //     child: Image.asset(
-            // //       'assets/pngs/antibiotic.png',
-            // //       width: 120,
-            // //     ),
-            // //   ),
-            // // ),
             Positioned(
               left: 24,
               top: 30,
@@ -71,10 +34,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Positioned(
               left: 20,
-              top: 125,
-              child: Image.asset(
-                'assets/pngs/intro.png',
-                width: 300,
+              top: 150,
+              child: Text(
+                'welcome to neighbors kitchen where \nboth home cooks who want so show \ntheir delicious cooking and customer \nwho want to experience food like \nthe ones at their home',
+                style: TextStyle(fontSize: 20, color: AppColors.darkBlue),
               ),
             ),
             Positioned(

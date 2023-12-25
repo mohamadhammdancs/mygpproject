@@ -29,7 +29,7 @@ loadingDialog(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SpinKitSpinningLines(
-                  color: Colors.indigo,
+                  color: Color.fromARGB(255, 45, 149, 150),
                   size: 55,
                 ),
                 Text("Loading..."),

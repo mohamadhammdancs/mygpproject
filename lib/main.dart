@@ -2,12 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:glass_login/auth/screens/root.dart';
 import 'package:glass_login/utils/app_colors.dart';
 
-/*
-
-  Social ig = flutter.demon
-  Social github = https://github.com/unique-gautam-yadav
-
-*/
 
 void main() {
   runApp(const MyApp());
