@@ -1,9 +1,5 @@
-//import 'dart:math';
-
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:string_validator/string_validator.dart';
-
 import '../../utils/app_colors.dart';
 import '../../utils/styles/text_field_style.dart';
 import '../../utils/utils.dart';
@@ -38,11 +34,10 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Positioned(
               left: 20,
-              top: 140,
+              top: 150,
               child: Text(
                 'welcome to neighbors kitchen where \nboth home cooks who want so show \ntheir delicious cooking and customer \nwho want to experience food like \nthe ones at their home',
-                style: TextStyle(
-                    fontSize: 20, color: AppColors.primaryHighContrast),
+                style: TextStyle(fontSize: 20, color: AppColors.darkBlue),
               ),
             ),
             Positioned(
