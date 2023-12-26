@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glass_login/cards/daily_dish_card.dart';
 import 'package:glass_login/cards/kitchen_card.dart';
 import 'package:glass_login/utils/app_colors.dart';
 
@@ -88,17 +89,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Container(
-            height: 100,
+            height: 180,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 10,
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  margin: EdgeInsets.all(8.0),
-                  width: 100,
-                  child: Image.network(
-                      'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Hamburger_%2812164386105%29.jpg/1200px-Hamburger_%2812164386105%29.jpg'),
-                );
+                return DailyDish();
               },
             ),
           ),
