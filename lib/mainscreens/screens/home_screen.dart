@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glass_login/cards/kitchen_card.dart';
+import 'package:glass_login/utils/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -239,21 +240,21 @@ class SearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
-      cursorColor: const Color.fromARGB(255, 38, 80, 115),
+      cursorColor: AppColors.darkBlue,
       decoration: InputDecoration(
-        focusedBorder: const OutlineInputBorder(
+        focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(15)),
           borderSide: BorderSide(
-            color: Color.fromARGB(255, 38, 80, 115),
+            color: AppColors.darkBlue,
           ),
         ),
-        enabledBorder: const OutlineInputBorder(
+        enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(15)),
             borderSide: BorderSide(
-              color: Color.fromARGB(255, 38, 80, 115),
+              color: AppColors.darkBlue,
             )),
-        labelStyle: const TextStyle(
-          color: Color.fromARGB(255, 38, 80, 115),
+        labelStyle: TextStyle(
+          color: AppColors.darkBlue,
         ),
         labelText: 'Search Food',
         border: OutlineInputBorder(
