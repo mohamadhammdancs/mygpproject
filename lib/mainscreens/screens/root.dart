@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
+import 'package:glass_login/mainscreens/screens/auth/login_screen.dart';
 import 'register_screen.dart';
 import 'verify_screen.dart';
 

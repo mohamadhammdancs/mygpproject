@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
-
-import '../../utils/app_colors.dart';
-import '../widgets/otp_form.dart';
+import 'package:glass_login/mainscreens/widgets/otp_form.dart';
+import 'package:glass_login/utils/app_colors.dart';
 
 class VerifyScreen extends StatefulWidget {
   const VerifyScreen({super.key, required this.controller});

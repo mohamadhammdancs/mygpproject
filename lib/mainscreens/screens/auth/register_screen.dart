@@ -1,21 +1,25 @@
-import 'package:flutter/material.dart';
-import 'package:string_validator/string_validator.dart';
-import '../../utils/app_colors.dart';
-import '../../utils/styles/text_field_style.dart';
-import '../../utils/utils.dart';
+//import 'dart:math';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key, required this.controller});
+import 'package:flutter/material.dart';
+import 'package:glass_login/utils/app_colors.dart';
+import 'package:glass_login/utils/styles/text_field_style.dart';
+//import 'package:flutter_svg/svg.dart';
+import 'package:string_validator/string_validator.dart';
+
+
+
+class SingUpScreen extends StatefulWidget {
+  const SingUpScreen({super.key, required this.controller});
   final PageController controller;
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SingUpScreen> createState() => _SingUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SingUpScreenState extends State<SingUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passController = TextEditingController();
-  final formKey = GlobalKey<FormState>();
-
+  final TextEditingController _nameController = TextEditingController();
+  final fKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,17 +38,18 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             Positioned(
               left: 20,
-              top: 150,
+              top: 140,
               child: Text(
                 'welcome to neighbors kitchen where \nboth home cooks who want so show \ntheir delicious cooking and customer \nwho want to experience food like \nthe ones at their home',
-                style: TextStyle(fontSize: 20, color: AppColors.darkBlue),
+                style: TextStyle(
+                    fontSize: 20, color: AppColors.primaryHighContrast),
               ),
             ),
             Positioned(
-              // padding: const EdgeInsets.all(30),
-              bottom: 30,
               left: 30,
               right: 30,
+              bottom: 30,
+              // padding: const EdgeInsets.all(30),
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
@@ -52,12 +57,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: AppColors.primaryLight.withOpacity(1),
                 ),
                 child: Form(
-                  key: formKey,
+                  key: fKey,
                   child: Column(
-                    // padding: const EdgeInsets.symmetric(horizontal: 50),
+                    textDirection: TextDirection.ltr,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Log In',
+                        'Sign up',
                         style: TextStyle(
                           color: AppColors.primaryHighContrast,
                           fontSize: 27,
@@ -68,15 +74,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 20,
                       ),
                       TextFormField(
+                        controller: _emailController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "Enter you e-mail.";
+                            return "Enter your mail";
                           } else if (!isEmail(value)) {
-                            return "Invalid mail";
+                            return "Please enter a valid mail";
                           }
                           return null;
                         },
-                        controller: _emailController,
                         style: textFieldTextStyle(),
                         decoration: textFieldDecoration('Email'),
                       ),
@@ -84,21 +90,54 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 10,
                       ),
                       TextFormField(
-                        obscureText: true,
+                        controller: _nameController,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "Enter you password";
-                          } else if (value.length < 6) {
-                            return "Must have at least 6 chars";
+                            return "Enter your name";
+                          } else if (value.length < 4) {
+                            return "Name must have at least 4 chars";
                           }
                           return null;
                         },
-                        focusNode: FocusNode(
-                          canRequestFocus: true,
-                        ),
-                        controller: _passController,
                         style: textFieldTextStyle(),
-                        decoration: textFieldDecoration('Password'),
+                        decoration: textFieldDecoration('Full Name'),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: TextFormField(
+                                obscureText: true,
+                                controller: _passController,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Enter your password";
+                                  } else if (value.length < 6) {
+                                    return "Password must have at least 6 chars";
+                                  }
+                                  return null;
+                                },
+                                style: textFieldTextStyle(),
+                                decoration: textFieldDecoration('Password')),
+                          ),
+                          const SizedBox(width: 10),
+                          Expanded(
+                            child: TextFormField(
+                              obscureText: true,
+                              validator: (value) {
+                                if (value != _passController.text) {
+                                  return "Password did'nt matched";
+                                }
+                                return null;
+                              },
+                              style: textFieldTextStyle(),
+                              decoration: textFieldDecoration('Re-Password'),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(
                         height: 25,
@@ -106,18 +145,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       FractionallySizedBox(
                         widthFactor: 1,
                         child: TextButton(
-                            style: TextButton.styleFrom(
-                              backgroundColor: AppColors.primaryHighContrast,
-                              foregroundColor: AppColors.whiteColor,
-                            ),
-                            onPressed: () async {
-                              loadingDialog(context);
-                              FocusManager.instance.primaryFocus?.unfocus();
-                              Future.delayed(const Duration(seconds: 2)).then(
-                                (value) => Navigator.pop(context),
-                              );
-                            },
-                            child: const Text("Sign In")),
+                          style: TextButton.styleFrom(
+                            backgroundColor: AppColors.primaryHighContrast,
+                            foregroundColor: AppColors.whiteColor,
+                          ),
+                          onPressed: () async {
+                            FocusManager.instance.primaryFocus?.unfocus();
+                            widget.controller.animateToPage(2,
+                                duration: const Duration(milliseconds: 500),
+                                curve: Curves.ease);
+                          },
+                          child: const Text("Create account"),
+                        ),
                       ),
                       const SizedBox(
                         height: 15,
@@ -125,7 +164,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         children: [
                           Text(
-                            'Don’t have an account?',
+                            ' have an account?',
+                            textAlign: TextAlign.center,
                             style: TextStyle(
                               color: AppColors.whiteColor,
                               fontSize: 13,
@@ -138,12 +178,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           InkWell(
                             onTap: () {
                               FocusManager.instance.primaryFocus?.unfocus();
-                              widget.controller.animateToPage(1,
+                              widget.controller.animateToPage(0,
                                   duration: const Duration(milliseconds: 500),
                                   curve: Curves.ease);
                             },
                             child: Text(
-                              'Sign Up',
+                              'Log In ',
                               style: TextStyle(
                                 color: AppColors.primaryHighContrast,
                                 fontSize: 13,
@@ -152,17 +192,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ],
-                      ),
-                      const SizedBox(
-                        height: 15,
-                      ),
-                      Text(
-                        'Forget Password?',
-                        style: TextStyle(
-                          color: AppColors.primaryHighContrast,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
-                        ),
                       ),
                     ],
                   ),
