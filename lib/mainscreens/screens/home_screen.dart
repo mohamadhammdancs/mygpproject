@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:glass_login/cards/daily_dish_card.dart';
 import 'package:glass_login/cards/kitchen_card.dart';
+import 'package:glass_login/mainscreens/widgets/search_bar.dart';
 import 'package:glass_login/utils/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,66 +15,92 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 236, 244, 214),
+      backgroundColor: AppColors.primaryColor,
       body: Column(
         children: [
           const SizedBox(
             height: 30,
           ),
-          const Padding(
-            padding: EdgeInsets.all(15.0),
+          Padding(
+            padding: EdgeInsets.fromLTRB(10, 5, 10, 5),
             child: Row(
               children: [
-                Icon(
-                  Icons.density_small_sharp,
-                  color: Color.fromARGB(255, 38, 80, 115),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 35,
+                    width: 35,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.whiteColor),
+                    child: Icon(
+                      Icons.density_medium_rounded,
+                      color: AppColors.darkBlue,
+                    ),
+                  ),
                 ),
-                Spacer(),
-                Icon(Icons.account_circle_rounded,
-                    color: Color.fromARGB(255, 38, 80, 115))
+                const Spacer(),
+                InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 35,
+                    width: 35,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: AppColors.whiteColor),
+                    child: Icon(Icons.account_circle_rounded,
+                        color: AppColors.darkBlue),
+                  ),
+                )
               ],
             ),
           ),
+          //searchbar
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SearchBar(),
+            padding: EdgeInsets.all(8.0),
+            child: SearchTextForm(),
           ),
+          //horizental crollviw of deals dishes
           Container(
             height: 100,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: 6,
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  margin: const EdgeInsets.all(8.0),
-                  width: 100,
+                return InkWell(
+                  onTap: () {},
                   child: Container(
-                    width: 20,
-                    height: 20,
-                    color: const Color.fromARGB(255, 154, 208, 194),
-                    child: const Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(5),
-                          child: Icon(
-                            Icons.local_fire_department_rounded,
-                            color: Color.fromARGB(255, 38, 80, 115),
-                            size: 45,
+                    margin: const EdgeInsets.all(8.0),
+                    width: 100,
+                    child: Container(
+                      width: 20,
+                      height: 20,
+                      color: const Color.fromARGB(255, 154, 208, 194),
+                      child: const Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(5),
+                            child: Icon(
+                              Icons.local_fire_department_rounded,
+                              color: Color.fromARGB(255, 38, 80, 115),
+                              size: 45,
+                            ),
                           ),
-                        ),
-                        Text(
-                          'hot Deal',
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 38, 80, 115),
-                          ),
-                        )
-                      ],
+                          Text(
+                            'hot Deal',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 38, 80, 115),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 );
               },
             ),
           ),
+          //text seperator
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Row(
@@ -88,6 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
+          //horizental crollviw of daily dishes
           Container(
             height: 180,
             child: ListView.builder(
@@ -98,6 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
+          //fillter drop downs
           Row(
             children: [
               Padding(
@@ -126,66 +155,67 @@ class _HomeScreenState extends State<HomeScreen> {
                   }).toList(),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                child: DropdownButton<String>(
-                  borderRadius: BorderRadius.circular(14),
-                  value: 'Cousin',
-                  icon: Icon(Icons.keyboard_arrow_down_rounded),
-                  iconSize: 24,
-                  elevation: 16,
-                  style: TextStyle(color: Color.fromARGB(255, 38, 80, 115)),
-                  underline: Container(
-                    height: 2,
-                    color: Color.fromARGB(255, 38, 80, 115),
-                  ),
-                  onChanged: (value) {},
-                  // onChanged: (String newValue) {
-                  //  print('User selected $newValue');
-                  // },
-                  items: <String>['Cousin', 'Arabic', 'Italian', 'Healthy']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-                child: DropdownButton<String>(
-                  borderRadius: BorderRadius.circular(14),
-                  value: 'Option 1',
-                  icon: Icon(Icons.keyboard_arrow_down_rounded),
-                  iconSize: 24,
-                  elevation: 16,
-                  style: TextStyle(color: Color.fromARGB(255, 38, 80, 115)),
-                  underline: Container(
-                    height: 2,
-                    color: Color.fromARGB(255, 38, 80, 115),
-                  ),
-                  onChanged: (value) {},
-                  // onChanged: (String newValue) {
-                  //  print('User selected $newValue');
-                  // },
-                  items: <String>['Option 1', 'Option 2', 'Option 3']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+              //   child: DropdownButton<String>(
+              //     borderRadius: BorderRadius.circular(14),
+              //     value: 'Cousin',
+              //     icon: Icon(Icons.keyboard_arrow_down_rounded),
+              //     iconSize: 24,
+              //     elevation: 16,
+              //     style: TextStyle(color: Color.fromARGB(255, 38, 80, 115)),
+              //     underline: Container(
+              //       height: 2,
+              //       color: Color.fromARGB(255, 38, 80, 115),
+              //     ),
+              //     onChanged: (value) {},
+              //     // onChanged: (String newValue) {
+              //     //  print('User selected $newValue');
+              //     // },
+              //     items: <String>['Cousin', 'Arabic', 'Italian', 'Healthy']
+              //         .map<DropdownMenuItem<String>>((String value) {
+              //       return DropdownMenuItem<String>(
+              //         value: value,
+              //         child: Text(value),
+              //       );
+              //     }).toList(),
+              //   ),
+              // ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+              //   child: DropdownButton<String>(
+              //     borderRadius: BorderRadius.circular(14),
+              //     value: 'Option 1',
+              //     icon: Icon(Icons.keyboard_arrow_down_rounded),
+              //     iconSize: 24,
+              //     elevation: 16,
+              //     style: TextStyle(color: Color.fromARGB(255, 38, 80, 115)),
+              //     underline: Container(
+              //       height: 2,
+              //       color: Color.fromARGB(255, 38, 80, 115),
+              //     ),
+              //     onChanged: (value) {},
+              //     // onChanged: (String newValue) {
+              //     //  print('User selected $newValue');
+              //     // },
+              //     items: <String>['Option 1', 'Option 2', 'Option 3']
+              //         .map<DropdownMenuItem<String>>((String value) {
+              //       return DropdownMenuItem<String>(
+              //         value: value,
+              //         child: Text(value),
+              //       );
+              //     }).toList(),
+              //   ),
+              // ),
             ],
           ),
+          //kitchens verical scrollview
           Expanded(
             child: ListView.builder(
               itemCount: 25,
               itemBuilder: (BuildContext context, int index) {
                 return Padding(
-                  padding: const EdgeInsets.fromLTRB(5, 2, 5, 2),
+                  padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
                   child: KitchenCard(),
                 );
               },
@@ -193,6 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      //nav bar
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(8.0),
         child: BottomNavigationBar(
@@ -222,39 +253,6 @@ class _HomeScreenState extends State<HomeScreen> {
               label: 'favourite',
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class SearchBar extends StatelessWidget {
-  const SearchBar({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      cursorColor: AppColors.darkBlue,
-      decoration: InputDecoration(
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(15)),
-          borderSide: BorderSide(
-            color: AppColors.darkBlue,
-          ),
-        ),
-        enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
-            borderSide: BorderSide(
-              color: AppColors.darkBlue,
-            )),
-        labelStyle: TextStyle(
-          color: AppColors.darkBlue,
-        ),
-        labelText: 'Search Food',
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25.0),
         ),
       ),
     );
