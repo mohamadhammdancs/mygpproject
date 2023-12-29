@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:glass_login/mainscreens/screens/root.dart';
 import 'package:glass_login/utils/app_colors.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
