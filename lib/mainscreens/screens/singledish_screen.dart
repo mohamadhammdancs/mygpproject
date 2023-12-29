@@ -161,7 +161,7 @@ class _SingleDishScreenState extends State<SingleDishScreen> {
                   //     (value) => Navigator.pop(context),
                   //   );
                   // },
-                  child: const Text("Sign In")),
+                  child: const Text("Add to Cart")),
             ),
           ),
         ],
