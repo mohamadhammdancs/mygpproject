@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: AppColors.whiteColor),
-                      child: Icon(Icons.account_circle_rounded,
+                      child: Icon(Icons.shopping_cart_outlined,
                           color: AppColors.darkBlue),
                     ),
                   )
@@ -211,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 // ),
               ],
             ),
-            //kitchens verical scro
+            //kitchens vertical scro
             Expanded(
               child: ListView.builder(
                 itemCount: 25,
@@ -227,37 +227,37 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       //nav bar
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: BottomNavigationBar(
-          currentIndex: 0,
-          onTap: (int value) {
-            setState(() {});
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined,
-                  color: Color.fromARGB(255, 38, 80, 115)),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined,
-                  color: Color.fromARGB(255, 38, 80, 115)),
-              label: 'Cart',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline_rounded,
-                  color: Color.fromARGB(255, 38, 80, 115)),
-              label: 'Profile',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_outline,
-                  color: Color.fromARGB(255, 38, 80, 115)),
-              label: 'favourite',
-            ),
-          ],
-        ),
-      ),
+      // bottomNavigationBar: Padding(
+      //   padding: const EdgeInsets.all(8.0),
+      //   child: BottomNavigationBar(
+      //     currentIndex: 0,
+      //     onTap: (int value) {
+      //       setState(() {});
+      //     },
+      //     items: const [
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.home_outlined,
+      //             color: Color.fromARGB(255, 38, 80, 115)),
+      //         label: 'Home',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.shopping_cart_outlined,
+      //             color: Color.fromARGB(255, 38, 80, 115)),
+      //         label: 'Cart',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.person_outline_rounded,
+      //             color: Color.fromARGB(255, 38, 80, 115)),
+      //         label: 'Profile',
+      //       ),
+      //       BottomNavigationBarItem(
+      //         icon: Icon(Icons.favorite_outline,
+      //             color: Color.fromARGB(255, 38, 80, 115)),
+      //         label: 'favourite',
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

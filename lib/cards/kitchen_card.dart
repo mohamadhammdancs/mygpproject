@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glass_login/mainscreens/screens/kitchen_screen.dart';
 import 'package:glass_login/utils/app_colors.dart';
 
 class KitchenCard extends StatelessWidget {
@@ -9,7 +10,12 @@ class KitchenCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const KitchenScreen()),
+        );
+      },
       child: SizedBox(
         height: 100,
         child: Card(
