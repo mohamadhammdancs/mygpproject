@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:glass_login/cards/single_dish_card.dart';
-import 'package:glass_login/mainscreens/screens/singledish_screen.dart';
 import 'package:glass_login/utils/app_colors.dart';
 
 class KitchenScreen extends StatefulWidget {
